@@ -16,7 +16,7 @@ public class Main {
                 5 // queueSize
         );
 
-        // Задачи — просто спят 2 секунды
+        
         for (int i = 1; i <= 10; i++) {
             final int id = i;
             pool.execute(() -> {
@@ -28,7 +28,7 @@ public class Main {
             });
         }
 
-        // Подождём 15 секунд, затем вызовем shutdown
+        
         Thread.sleep(15000);
         pool.shutdown();
     }
