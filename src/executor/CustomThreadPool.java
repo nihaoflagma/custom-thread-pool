@@ -57,7 +57,7 @@ public class CustomThreadPool implements CustomExecutor {
         }
 
         if (!taskQueue.offer(command)) {
-            // очередь полна
+            
             if (currentPoolSize.get() < maxPoolSize) {
                 addWorker();
                 try {
@@ -73,7 +73,7 @@ public class CustomThreadPool implements CustomExecutor {
             System.out.println("[Pool] Task accepted into queue: " + command);
         }
 
-        // ensure min spare threads
+        
         int idleThreads = currentPoolSize.get() - taskQueue.size();
         if (idleThreads < minSpareThreads && currentPoolSize.get() < maxPoolSize) {
             addWorker();
